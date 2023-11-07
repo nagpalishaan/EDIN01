@@ -1,0 +1,11 @@
+Exercise 1
+There are 10^13 - 10^12 12-digit numbers, so checking them all will take 900000 seconds.
+
+Exercise 2
+There is an upper bound of 419281255737 primes less than 10^13. Iterating through these with ten million tests per second gives 41928 seconds.
+
+Each of these primes can be represented using 44-bit numbers. This uses roughly 2.10 TB of storage. We can acquire a 2TB SSD for 1111kr and a 500GB SSD for 599kr, for a total of 1700kr.
+
+1111 kr / 2Tb free shipping
+599 kr / 500Gb
+1700 kr
