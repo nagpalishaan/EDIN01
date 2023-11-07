@@ -4,7 +4,7 @@
 #include <fstream>
 using namespace std;
 
-vector<LongInt> bPrimes(int b)
+vector<LongInt> bPrimes(LongInt b)
 {
     vector<LongInt> primes;
 
@@ -31,10 +31,19 @@ vector<LongInt> bPrimes(int b)
     return primes;
 }
 
-bool bSmooth(vector<int> primes, int x)
+bool bSmooth(vector<LongInt> primes, LongInt x)
 {
-    
-    return false;
+    for (int i = 0; i < primes.size(); i++)
+    {
+        if (x % primes[i] == 0)
+        {
+            x /= primes[i];
+            i -= 1;
+        }
+    }
+
+    if (x == 1) return true;
+    else return false;
 }
 
 void quadraticSieve()
@@ -59,4 +68,14 @@ int main()
     {
         primes[i].DecOutput("");
     }
+
+    LongInt x(100);
+    LongInt y(25);
+    LongInt z(31);
+    LongInt w(26);
+
+    cout << bSmooth(primes, x) << endl;
+    cout << bSmooth(primes, y) << endl;
+    cout << bSmooth(primes, z) << endl;
+    cout << bSmooth(primes, w) << endl;
 }
