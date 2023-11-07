@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+prim_2_24.txt
+**/.vscode/
