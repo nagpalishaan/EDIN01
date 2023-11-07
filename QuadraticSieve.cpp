@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <cmath>
 using namespace std;
 
 vector<LongInt> bPrimes(LongInt b)
@@ -33,6 +34,8 @@ vector<LongInt> bPrimes(LongInt b)
 
 bool bSmooth(vector<LongInt> primes, LongInt x)
 {
+    if (x == 0) return false;
+
     for (int i = 0; i < primes.size(); i++)
     {
         if (x % primes[i] == 0)
@@ -46,30 +49,45 @@ bool bSmooth(vector<LongInt> primes, LongInt x)
     else return false;
 }
 
-void quadraticSieve()
+void quadraticSieve(LongInt N, vector<LongInt> primes)
 {
-    for (int total = 2; total < 10; total += 1)
+
+
+    LongInt one(1);
+
+    for (LongInt total = 2; total < N; total = total + one)
     {
-        for (int k = 1; k < total; k += 1)
+        for (LongInt k = 1; k < total; k = k + one)
         {
-            int j = total - k;
-            
+            LongInt j = total - k;
+            LongInt r = (k * N).powfn(.5) + j;
+            LongInt test = r*r % N;
+            bool smooth = bSmooth(primes, test);
+
+            if (smooth)
+            {
+                r.DecOutput("r");
+                cout << "hello" << endl;
+                return;
+            }
         }
     }
-    // (1,1)
-    // (1,2), (2,1)
+    // (j, k)
+    // (1,1) 2
+    // (1,2), (2,1) 3
+    // (1,3), (2,2), (3,1) 4
 
 }
 
 int main()
 {
-    vector<LongInt> primes = bPrimes(10);
+    vector<LongInt> primes = bPrimes(101);
     for (int i = 0; i < primes.size(); i++)
     {
         primes[i].DecOutput("");
     }
 
-    LongInt x(100);
+    LongInt x(21);
     LongInt y(25);
     LongInt z(31);
     LongInt w(26);
@@ -78,4 +96,6 @@ int main()
     cout << bSmooth(primes, y) << endl;
     cout << bSmooth(primes, z) << endl;
     cout << bSmooth(primes, w) << endl;
+
+    quadraticSieve(100, primes);
 }
