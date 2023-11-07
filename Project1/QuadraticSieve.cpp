@@ -51,8 +51,6 @@ bool bSmooth(vector<LongInt> primes, LongInt x)
 
 void quadraticSieve(LongInt N, vector<LongInt> primes)
 {
-
-
     LongInt one(1);
 
     for (LongInt total = 2; total < N; total = total + one)
