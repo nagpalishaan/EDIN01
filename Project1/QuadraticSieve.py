@@ -2,6 +2,7 @@ import math
 import subprocess
 import numpy as np
 from decimal import *
+import time
 
 # returns a list of primes less than or equal to b
 def bPrimes(b):
@@ -130,6 +131,8 @@ def factorize(N, x, solutions, M, primes):
 
 
 if __name__ == '__main__':
+    # start time to calculate runtime
+    start_time = time.time()
     # Number to factorize
     #N = 16061 * 60167
     #N = 11 * 7
@@ -152,6 +155,8 @@ if __name__ == '__main__':
 
     # Get factors of N
     p, q = factorize(N, x, sols, M, primes)
+    # print results
     print(p, "*", q, "=", N)
-
+    # output runtime
+    print("Time taken:", time.time() - start_time, "seconds")
     # Exercise 3: 453131078611 * 519975082301 = 235616869893895625763911
