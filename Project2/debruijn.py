@@ -40,6 +40,7 @@ def debruijn5(c, s):
 
 
 
+
 if __name__ == '__main__':
     state2 = [0, 0, 0, 0]
     state5 = [1, 0, 0, 0]
@@ -54,5 +55,9 @@ if __name__ == '__main__':
         pattern = debruijn_seq[(i - 3):(i + 1)]
         if pattern not in test:
             test.append(pattern)
+    # print the 10003 digits on a file called debruijn.txt
+    with open('debruijn.txt', 'w') as f:
+        for i in range(10003):
+            f.write(str(debruijn_seq[i]))
 
     print(len(test))
