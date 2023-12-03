@@ -47,7 +47,7 @@ if __name__ == '__main__':
     debruijn_seq = []
     for k in range(10003):
         state2 = debruijn2([1, 0, 0, 1], state2)
-        state5 = debruijn5([0, 1, 2, 2], state5)
+        state5 = debruijn5([3, 4, 0, 3], state5)
         debruijn_seq.append(5 * state2[0] + state5[0])
 
     test = []
