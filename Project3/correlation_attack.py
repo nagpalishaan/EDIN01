@@ -13,7 +13,7 @@ def LFSR(c, s, L, N):
         next_state = 0
         for i in range(L):
             next_state -= c[i] * s[len(s)-i-1]
-
+        
         next_state %= 2
 
         s += [next_state]
@@ -58,6 +58,8 @@ if __name__ == '__main__':
     c1 = [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1]
     c2 = [0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1]
     c3 = [0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1]
+
+    print(LFSR([1, 0, 0, 1], [0, 0, 0, 1], 4, 16))
 
     t1 = generate(z, c1)
     t2 = generate(z, c2)
